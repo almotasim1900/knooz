@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:koosh/controller/onboarding_dots_controller.dart';
 import 'package:koosh/core/constant/colors.dart';
 
-class CustomButtonOnBoardingWidget extends StatelessWidget {
+class CustomButtonOnBoardingWidget
+    extends GetView<OnBoardingDotsControllerImp> {
   const CustomButtonOnBoardingWidget({super.key});
 
   @override
@@ -14,8 +17,11 @@ class CustomButtonOnBoardingWidget extends StatelessWidget {
         textColor: AppColors.white,
         color: AppColors.primerycolor,
         padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 2),
-        child: const Text('Continue'),
-        onPressed: () {},
+        child: Text('continue'.tr),
+        onPressed: () {
+          // مربطة بالدوت عند الضغط
+          controller.next();
+        },
       ),
     );
   }
