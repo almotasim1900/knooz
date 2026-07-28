@@ -5,6 +5,7 @@ import 'package:koosh/core/localizations/changelanguage.dart';
 import 'package:koosh/core/localizations/translation.dart';
 import 'package:koosh/routes.dart';
 import 'package:koosh/services/services.dart';
+import 'package:koosh/test.dart';
 import 'package:koosh/view/screen/language_screen.dart';
 
 void main() async {
@@ -66,7 +67,10 @@ class MyApp extends StatelessWidget {
             ),
             primarySwatch: Colors.blue,
           ),
-          home: const LanguageaScreen(),
+          // صفحة بداية المشروع
+          home: 
+         // Test(),
+          const LanguageaScreen(),
           routes: routes,
         );
       },

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:koosh/controller/onboarding_dots_controller.dart';
+import 'package:koosh/controller/onboarding_controller/onboarding_dots_controller.dart';
 import 'package:koosh/core/constant/colors.dart';
 
 class CustomButtonOnBoardingWidget

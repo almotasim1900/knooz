@@ -8,6 +8,6 @@ class LogoAuth extends StatelessWidget {
   Widget build(BuildContext context) {
     // مسار صورة اللوقو
     //F:\flutter\koosh\lib\core\constant\onboardingimage.dart
-    return Image.asset(OnBoardingImage.onBoardingImageFour, height: 170);
+    return Image.asset(OnBoardingImage.logo, height: 170);
   }
 }

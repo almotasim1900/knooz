@@ -5,14 +5,14 @@ class CustomSignInFormField extends StatelessWidget {
   final String hinttext;
   final String labeltext;
   final IconData iconData;
-  final TextEditingController? mycontroller;
+  final TextEditingController authController;
 
   const CustomSignInFormField({
     super.key,
     required this.hinttext,
     required this.labeltext,
-    required this.iconData,
-    this.mycontroller,
+    required this.iconData, required this.authController,
+    
   });
 
   @override
@@ -20,7 +20,7 @@ class CustomSignInFormField extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       child: TextFormField(
-        controller: mycontroller,
+        controller: authController,
         decoration: InputDecoration(
           hintText: hinttext,
           hintStyle: const TextStyle(fontSize: 12, color: AppColors.gray),

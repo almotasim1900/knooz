@@ -1,7 +1,7 @@
 //الصفحة الاولي
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:koosh/controller/onboarding_dots_controller.dart';
+import 'package:koosh/controller/onboarding_controller/onboarding_dots_controller.dart';
 import 'package:koosh/core/constant/colors.dart';
 import 'package:koosh/view/widget/onboardingwidget/custombuttononboardingwidget.dart';
 import 'package:koosh/view/widget/onboardingwidget/dotscontrollerwidget.dart';

@@ -1,28 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:koosh/controller/auth_controller/login_controller.dart';
+import 'package:koosh/controller/auth_controller/registration_controller.dart';
 import 'package:koosh/core/constant/colors.dart';
 import 'package:koosh/view/widget/auth/custom_button_auth.dart';
 import 'package:koosh/view/widget/auth/custom_sign_in_form_field.dart';
 import 'package:koosh/view/widget/auth/custom_text_auth.dart';
 import 'package:koosh/view/widget/auth/custom_text_body_auth.dart';
-import 'package:koosh/view/widget/auth/logo_auth.dart';
 import 'package:koosh/view/widget/auth/registration_text_widgets.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class RegistrationScreen extends StatelessWidget {
+  const RegistrationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    //حقن متحكم جداول الادخال بالص
-    LoginControllerImp controller = Get.put(LoginControllerImp());
+    // حقن متحكم جداول الادخال بالصفحة
+    RegistrationControllerImp controller = Get.put(RegistrationControllerImp());
     return Scaffold(
       appBar: AppBar(
         // backgroundColor: AppColors.white,
         centerTitle: true,
         //  sign in
         title: Text(
-          'Sign In',
+          'Registration',
           style: Theme.of(
             context,
           ).textTheme.headlineLarge!.copyWith(color: AppColors.gray),
@@ -33,30 +32,43 @@ class Login extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: ListView(
           children: [
-            // اضافة صورة اللوقو
-            LogoAuth(),
             // نص Welcome Back
             CustomTextAuth(text: 'Welcome Back'),
             const SizedBox(height: 10),
             // النص تحت Welcome Back
             CustomTextBodyAuth(
               text:
-                  'Sign in With Your Email And Password Or Continue With Social Media ',
+                  'Sign up With Your Email And Phone And Password Or Continue With Social Media ',
             ),
-            // فورم ادخال الايميل
             const SizedBox(height: 15),
-            //F:\flutter\koosh\lib\view\widget\auth\custom_sign_in_form_field.dart
+            // فور لادخال اليوزر نيم
+            CustomSignInFormField(
+              authController: controller.username,
+              labeltext: "Username",
+              hinttext: " Enter Username",
+              iconData: Icons.person_2_outlined,
+              //mycontroller: ,
+            ),
+
+            // فورم ادخال الايميل
             CustomSignInFormField(
               authController: controller.email,
               labeltext: "Email",
               hinttext: " Enter Your Email",
               iconData: Icons.email_outlined,
-              //mycontroller:
+              //mycontroller: ,
             ),
 
-            // نهاية فورم ادخال الايميل
+            // فورم رقم الهاتف
+            CustomSignInFormField(
+              authController: controller.phone,
+              labeltext: "Phone",
+              hinttext: " Enter Your Phone",
+              iconData: Icons.phone_android_outlined,
+              //mycontroller: ,
+            ),
+
             //فورم ادخال الرقم السري
-            //F:\flutter\koosh\lib\view\widget\auth\custom_sign_in_form_field.dart
             CustomSignInFormField(
               authController: controller.password,
               labeltext: "Password",
@@ -66,29 +78,19 @@ class Login extends StatelessWidget {
             ),
             //
             // نهاية فورم ادخال الرقم السري
-            InkWell(
-              onTap: () {
-                controller.goToForgetPassword();
-              },
-              child: Text(
-                'Forger Password',
-                textAlign: TextAlign.end,
-                style: Theme.of(context).textTheme.bodySmall,
-              ),
-            ),
-
             // بوتوم تسجيل الدخول
-            CustomButtonAuth(text: 'Sing In', onPressed: () {}),
+            CustomButtonAuth(text: 'Registar', onPressed: () {}),
             SizedBox(height: 30),
             // بداية سطر اذا ما عندك حساب
             RegistrationTextWidget(
-              text: "Don't have an account?  ",
-              text2: 'Sign Up',
+              text: "have an account?  ",
+              text2: 'Sign In',
               onTap: () {
-                controller.goToRegistration();
+                controller.goToLogin();
               },
             ),
-            // نهاية سطر اذا ما عندك حسا
+
+            // نهاية سطر اذا ما عندك حساب
           ],
         ),
       ),
