@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:koosh/controller/auth_controller/forget_controller.dart';
+import 'package:koosh/controller/auth_controller/check_email_controller.dart';
 import 'package:koosh/core/constant/colors.dart';
 import 'package:koosh/view/widget/auth/custom_button_auth.dart';
 import 'package:koosh/view/widget/auth/custom_sign_in_form_field.dart';
@@ -13,8 +13,8 @@ class CheckEmail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // حقن متحكم جداول الادخال بالصفحة
-    ForgetPasswordControllerImp controller = Get.put(
-      ForgetPasswordControllerImp(),
+    CheckEmailControllerImp controller = Get.put(
+      CheckEmailControllerImp(),
     );
     return Scaffold(
       appBar: AppBar(
@@ -22,7 +22,7 @@ class CheckEmail extends StatelessWidget {
         centerTitle: true,
         //  sign in
         title: Text(
-          'Forget Password',
+          'Check Email',
           style: Theme.of(
             context,
           ).textTheme.headlineLarge!.copyWith(color: AppColors.gray),
@@ -34,7 +34,7 @@ class CheckEmail extends StatelessWidget {
         child: ListView(
           children: [
             // نص Welcome Back
-            CustomTextAuth(text: 'Check Email'),
+            CustomTextAuth(text: 'Success Sign Up'),
             const SizedBox(height: 10),
             // النص تحت Welcome Back
             CustomTextBodyAuth(
@@ -55,7 +55,7 @@ class CheckEmail extends StatelessWidget {
             CustomButtonAuth(
               text: 'Check',
               onPressed: () {
-                controller.goVerfiyCode();
+                controller.goToSuccessSignUp();
               },
             ),
             SizedBox(height: 30),

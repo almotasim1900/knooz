@@ -14,7 +14,9 @@ class RegistrationControllerImp extends RegistrationController {
   late TextEditingController phone;
 
   @override
-  registration() {}
+  registration() {
+    Get.offNamed(AppsRoutesNames.checkemail);
+  }
 
   @override
   goToLogin() {

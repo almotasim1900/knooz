@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:koosh/controller/onboarding_controller/onboarding_dots_controller.dart';
+import 'package:koosh/core/constant/colors.dart';
 import 'package:koosh/data/datasource/static/onboarding_static.dart';
 
 class SliderOnboardingWidget extends GetView<OnBoardingDotsControllerImp> {
@@ -19,7 +20,7 @@ class SliderOnboardingWidget extends GetView<OnBoardingDotsControllerImp> {
         children: [
           Text(
             onBoardingList[i].title!,
-            style: Theme.of(context).textTheme.headlineLarge,
+            style:const TextStyle(),
           ),
           const SizedBox(height: 50),
           //صور صفحة الاقلاع
@@ -37,7 +38,12 @@ class SliderOnboardingWidget extends GetView<OnBoardingDotsControllerImp> {
             child: Text(
               onBoardingList[i].body!,
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: AppColors.gray,
+                height: 2,
+                fontSize: 17,
+              ),
             ),
           ),
         ],

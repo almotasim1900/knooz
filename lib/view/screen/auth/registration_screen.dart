@@ -79,7 +79,12 @@ class RegistrationScreen extends StatelessWidget {
             //
             // نهاية فورم ادخال الرقم السري
             // بوتوم تسجيل الدخول
-            CustomButtonAuth(text: 'Registar', onPressed: () {}),
+            CustomButtonAuth(
+              text: 'Registar',
+              onPressed: () {
+                controller.registration();
+              },
+            ),
             SizedBox(height: 30),
             // بداية سطر اذا ما عندك حساب
             RegistrationTextWidget(

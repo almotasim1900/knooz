@@ -55,7 +55,12 @@ class RestPassword extends StatelessWidget {
             ),
 
             // بوتوم حفظ البايانات
-            CustomButtonAuth(text: 'Save', onPressed: () {}),
+            CustomButtonAuth(
+              text: 'Save',
+              onPressed: () {
+                controller.goToSuccessResetPassword();
+              },
+            ),
             SizedBox(height: 30),
           ],
         ),

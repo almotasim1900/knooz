@@ -10,6 +10,8 @@ class AppsRoutesNames {
     static const String reSetPassword = '/resetpassword';
     static const String successSignup = '/successSignup';
         static const String successResetPassword = '/successResetPassword';
+                static const String checkemail = '/checkemail';
+
 
 
     

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:koosh/controller/auth_controller/forget_controller.dart';
+import 'package:koosh/controller/auth_controller/forget_password_controller.dart';
 import 'package:koosh/core/constant/colors.dart';
 import 'package:koosh/view/widget/auth/custom_button_auth.dart';
 import 'package:koosh/view/widget/auth/custom_sign_in_form_field.dart';
