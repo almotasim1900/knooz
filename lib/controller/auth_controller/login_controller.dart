@@ -9,11 +9,20 @@ abstract class AuthController extends GetxController {
 }
 
 class LoginControllerImp extends AuthController {
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+
   late TextEditingController email;
   late TextEditingController password;
 
   @override
-  login() {}
+  login() {
+    var formdata = formstate.currentState;
+    if (formdata!.validate()) {
+      'Valid'.tr;
+    } else {
+      'Not Valid'.tr;
+    }
+  }
 
   @override
   goToRegistration() {
@@ -34,10 +43,9 @@ class LoginControllerImp extends AuthController {
     password.dispose();
     super.dispose();
   }
-  
+
   @override
   void goToForgetPassword() {
-        Get.offNamed(AppsRoutesNames.forgetPassword);
-
+    Get.offNamed(AppsRoutesNames.forgetPassword);
   }
 }

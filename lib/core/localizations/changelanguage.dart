@@ -15,7 +15,7 @@ class LanguageControllerPage extends GetxController {
   void changelanguage(String languagecode) {
     Locale locale = Locale(languagecode);
     myServices.sharedPreferences.setString("language", languagecode);
-    appTheme = initlanguage == 'ar' ? arabicTheme : englishTheme;
+      appTheme = languagecode == 'ar' ? arabicTheme : englishTheme;
     Get.changeTheme(appTheme);
     Get.updateLocale(locale);
   }

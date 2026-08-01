@@ -6,13 +6,18 @@ class CustomSignInFormField extends StatelessWidget {
   final String labeltext;
   final IconData iconData;
   final TextEditingController authController;
+  final String? Function(String?) valid;
+  final bool isNumber;
 
   const CustomSignInFormField({
     super.key,
     required this.hinttext,
     required this.labeltext,
-    required this.iconData, required this.authController,
-    
+    required this.iconData,
+    required this.authController,
+    required this.isNumber,
+
+    required this.valid,
   });
 
   @override
@@ -20,6 +25,11 @@ class CustomSignInFormField extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       child: TextFormField(
+        keyboardType: isNumber
+            ? const TextInputType.numberWithOptions(decimal: true)
+            : TextInputType.text,
+        // اضافة التحقق
+        validator: valid,
         controller: authController,
         decoration: InputDecoration(
           hintText: hinttext,

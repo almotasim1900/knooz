@@ -1,8 +1,8 @@
 //ادارة التنقل بين الصفحات
 import 'package:flutter/material.dart';
 import 'package:koosh/core/constant/routes_names.dart';
-import 'package:koosh/view/screen/auth/check_email.dart';
 import 'package:koosh/view/screen/auth/forget_password/forget_password.dart';
+import 'package:koosh/view/screen/auth/forget_password/vrefiycodesignup.dart';
 import 'package:koosh/view/screen/auth/login.dart';
 import 'package:koosh/view/screen/auth/registration_screen.dart';
 import 'package:koosh/view/screen/auth/forget_password/rest_password.dart';
@@ -24,7 +24,8 @@ Map<String, Widget Function(BuildContext)> routes = {
   AppsRoutesNames.reSetPassword: (context) => const RestPassword(),
     AppsRoutesNames.successResetPassword: (context) => const SuccessResetPassword(),
   AppsRoutesNames.successSignup: (context) => const SuccessSignUp(),
-    AppsRoutesNames.checkemail: (context) => const CheckEmail(),
+        AppsRoutesNames.vrefiyCodeSignUp: (context) => const Vrefiycodesignup(),
+
 
 
 

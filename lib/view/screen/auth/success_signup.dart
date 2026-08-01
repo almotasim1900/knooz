@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:koosh/controller/auth_controller/success_signup_controller.dart';
 import 'package:koosh/core/constant/colors.dart';
 import 'package:koosh/view/widget/auth/custom_button_auth.dart';
 
@@ -7,6 +9,7 @@ class SuccessSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SuccesSignUpControllerImp controller = Get.put(SuccesSignUpControllerImp());
     return Scaffold(
       appBar: AppBar(
         // backgroundColor: AppColors.white,
@@ -52,7 +55,7 @@ class SuccessSignUp extends StatelessWidget {
               child: CustomButtonAuth(
                 text: 'Go to Login',
                 onPressed: () {
-                  // controller.registration();
+                  controller.goToPageLogin();
                 },
               ),
             ),

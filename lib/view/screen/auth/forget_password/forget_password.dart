@@ -45,6 +45,8 @@ class ForgetPassword extends StatelessWidget {
 
             // فورم رقم الهاتف
             CustomSignInFormField(
+              isNumber: false,
+              valid: (val){},
               authController: controller.email,
               labeltext: "Email",
               hinttext: " Enter Your Email",

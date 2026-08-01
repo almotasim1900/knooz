@@ -8,6 +8,8 @@ abstract class RegistrationController extends GetxController {
 }
 
 class RegistrationControllerImp extends RegistrationController {
+  GlobalKey<FormState> formstate = GlobalKey<FormState>();
+
   late TextEditingController username;
   late TextEditingController email;
   late TextEditingController password;
@@ -15,7 +17,13 @@ class RegistrationControllerImp extends RegistrationController {
 
   @override
   registration() {
-    Get.offNamed(AppsRoutesNames.checkemail);
+    var formData = formstate.currentState;
+    if (formData!.validate()) {
+      'Valid';
+      Get.offNamed(AppsRoutesNames.vrefiyCodeSignUp);
+    } else {
+      'Not Valid';
+    }
   }
 
   @override

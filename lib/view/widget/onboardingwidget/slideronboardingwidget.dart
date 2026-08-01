@@ -18,18 +18,15 @@ class SliderOnboardingWidget extends GetView<OnBoardingDotsControllerImp> {
       itemCount: onBoardingList.length,
       itemBuilder: (context, i) => Column(
         children: [
-          Text(
-            onBoardingList[i].title!,
-            style:const TextStyle(),
-          ),
-          const SizedBox(height: 50),
           //صور صفحة الاقلاع
           Image.asset(
             onBoardingList[i].image!,
             height: 270,
-            width: 230,
+            // width: 230,
             fit: BoxFit.fill,
           ),
+          const SizedBox(height: 20),
+          Text(onBoardingList[i].title!, style: const TextStyle()),
           const SizedBox(height: 50),
           // حاوية خاصة بالنص تحت صور صفحة الاقلاع لاعطاءها بعض الخصائص
           Container(

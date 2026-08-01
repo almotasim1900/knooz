@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
 
       // صفحة البداية التشغيل
       home: const LanguageaScreen(),
+
       // مسار الصفحة الرووت
       routes: routes,
     );
