@@ -17,8 +17,4 @@ class VrefiyCodeControllerImp extends VrefiyCodeController {
     Get.offNamed(AppsRoutesNames.reSetPassword);
   }
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
 }

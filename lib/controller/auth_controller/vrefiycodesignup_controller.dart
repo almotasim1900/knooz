@@ -17,8 +17,4 @@ class VrefiyCodeSignUpControllerImp extends VrefiyCodeSignUpController {
     Get.offNamed(AppsRoutesNames.successSignup);
   }
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
 }

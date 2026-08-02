@@ -43,7 +43,9 @@ class RestPassword extends StatelessWidget {
             // فورم رقم الباسويرد
             CustomSignInFormField(
               isNumber: true,
-              valid: (val){},
+              valid: (val){
+                return null;
+              },
               authController: controller.password,
               labeltext: "Password",
               hinttext: " Enter Your password",
@@ -51,7 +53,9 @@ class RestPassword extends StatelessWidget {
             ),
             CustomSignInFormField(
               isNumber: false,
-              valid: (val){},
+              valid: (val){
+                return null;
+              },
               authController: controller.repassword,
               labeltext: "Re Password",
               hinttext: " RE Enter Your password",

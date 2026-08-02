@@ -13,6 +13,11 @@ class LoginControllerImp extends AuthController {
 
   late TextEditingController email;
   late TextEditingController password;
+  bool isShowPassword = true;
+  void showpassword() {
+    isShowPassword = isShowPassword == true ? false : true;
+    update();
+  }
 
   @override
   login() {

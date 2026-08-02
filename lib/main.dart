@@ -4,8 +4,6 @@ import 'package:koosh/core/localizations/changelanguage.dart';
 import 'package:koosh/core/localizations/translation.dart';
 import 'package:koosh/routes.dart';
 import 'package:koosh/services/services.dart';
-import 'package:koosh/view/screen/language_screen.dart';
-
 
 void main() async {
   // استدعاء الشيردبرفرنس حتي يشتغل مع اقلاع التطبيق
@@ -22,21 +20,16 @@ class MyApp extends StatelessWidget {
     // الحقن لاستخدام اللغة
     LanguageControllerPage controller = Get.put(LanguageControllerPage());
 
-    return GetMaterialApp (
+    return GetMaterialApp(
       // استدعاء دالة الترجمة
-      translations: MyTranslation(
-
-      ),
+      translations: MyTranslation(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       locale: controller.initlanguage,
       theme: controller.appTheme,
 
-      // صفحة البداية التشغيل
-      home: const LanguageaScreen(),
-
-      // مسار الصفحة الرووت
-      routes: routes,
+      // ادارة التنقل بين الصفحات
+      getPages: routes,
     );
   }
 }
