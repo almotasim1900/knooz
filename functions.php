@@ -139,4 +139,27 @@ function checkAuthenticate()
     }
 
     // End 
+    
+}
+function printFaliure($message="none")
+{
+        echo  json_encode(array("status"=>"Faliure","message"=>$message));
+    }
+  function sendEmail($to, $title, $body)
+{
+    $headers = "From: support@kush-crown.com\r\n";
+    $headers .= "Reply-To: support@kush-crown.com\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
+
+    $mail_sent = mail(
+        $to,
+        $title,
+        $body,
+        $headers,
+        "-fsupport@kush-crown.com"
+    );
+
+    return $mail_sent;
 }

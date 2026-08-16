@@ -1,12 +1,19 @@
-<?php 
+<?php
 
-include './connect.php';
-$table = "users";
-// $name = filterRequest("namerequest");
-$data = array( 
-"user_name" => "wael",
-"user_email" => "wael@gmail.com",
-"user_phone" => "324234",
-"user_verfiycode" => "3243243",       
-);
-$count = insertData($table , $data);
+include "connect.php";
+
+if (sendEmail(
+    "almotasim1900@gmail.com",
+    "الرسالة الجديدة بعد التحويل",
+    "عنوان الرسالة ياغفران"
+)) {
+
+    echo "تم إرسال البريد بنجاح";
+
+} else {
+
+    echo "فشل إرسال البريد";
+
+}
+
+?>

@@ -1,7 +1,7 @@
 <?php
-$dsn = 'mysql:host=localhost;dbname=kushapp;charset=utf8';
-$user = "root";
-$pass = "";
+$dsn = 'mysql:host=localhost;dbname=u431724859_kushapp;charset=utf8';
+$user = "u431724859_kushapp";
+$pass = "Hos1412YTVHk@#";
 $option = array(
 );
 $countrowinpage = 9;
@@ -11,7 +11,7 @@ try {
    header("Access-Control-Allow-Origin: *");
    header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Access-Control-Allow-Origin");
    header("Access-Control-Allow-Methods: POST, OPTIONS , GET");
-   include "./functions.php";
+   include "functions.php";
    if (!isset($notAuth)) {
       // checkAuthenticate();
    }
