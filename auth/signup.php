@@ -4,7 +4,7 @@ $username = filterRequest("username");
 $password = sha1(filterRequest("password"));
 $email = filterRequest("email");
 $phone = filterRequest("phone");
-$verfiycode ="0";
+$verfiycode = rand(1000,9999);
 
 
 
@@ -19,7 +19,8 @@ if ($count>0){
         "user_email"=>$email,
         "user_phone"=>$phone,
         "user_password"=>$password,
-        "user_verfiycode"=>"0",
+        "user_verfiycode"=>$verfiycode,
     );
+    sendEmail($email,"Verfiy Code For Kush Crown App","Verfiy Code $verfiycode");
     insertData("users",$data);
 }
