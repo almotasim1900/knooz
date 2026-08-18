@@ -2,6 +2,7 @@
 import 'package:get/get.dart';
 import 'package:koosh/core/constant/routes_names.dart';
 import 'package:koosh/core/middleware/my_middleware.dart';
+import 'package:koosh/test.dart';
 import 'package:koosh/view/screen/auth/forget_password/forget_password.dart';
 import 'package:koosh/view/screen/auth/forget_password/vrefiycodesignup.dart';
 import 'package:koosh/view/screen/auth/login.dart';
@@ -15,11 +16,12 @@ import 'package:koosh/view/screen/onboarding.dart';
 
 List<GetPage<dynamic>>? routes = [
   // الصفحة التي يبدأ منها التطبيق عند فتحه
-  GetPage(
-    name: "/",
-    page: () => const LanguageaScreen(),
-    middlewares: [MyMiddleware()],
-  ),
+  //GetPage(
+  //name: "/",
+  // page: () => const LanguageaScreen(),
+  // middlewares: [MyMiddleware()],
+  // ),
+  GetPage(name: "/", page: () => Test()),
 
   // هذه الخطوة بعد تعريف الروت في الدالة بالرابط التالي
   // onboarding
