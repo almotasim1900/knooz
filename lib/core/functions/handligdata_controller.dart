@@ -2,7 +2,7 @@ import 'package:koosh/core/class/status_request.dart';
 
 // --HANDLE DATA-------------------------------------------------
 
-handlingDataController(response) {
+handlingData(response) {
   // --CHECK STATUS REQUEST--------------------------------------
 
   if (response is StatusRequest) {

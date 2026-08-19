@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:koosh/core/class/status_request.dart';
+import 'package:koosh/core/class/handlingdata_view.dart';
+import 'package:koosh/core/constant/colors.dart';
 import 'controller/test_controller.dart';
 
 // --TEST VIEW----------------------------------------------------
@@ -17,27 +18,17 @@ class TestView extends StatelessWidget {
     // --SCAFFOLD-------------------------------------------------
     return Scaffold(
       // --APP BAR-------------------------------------------------
-      appBar: AppBar(title: const Text("صفحة تجريبية")),
+      appBar: AppBar(
+        title: const Text("صفحة تجريبية"),
+        backgroundColor: AppColors.primerycolor,
+      ),
 
       // --BODY----------------------------------------------------
       body: GetBuilder<TestController>(
         builder: (controller) {
-          // --LOADING---------------------------------------------
-          if (controller.statusRequest == StatusRequest.loading) {
-            return const Center(child: Text("Loading..."));
-
-            // --OFFLINE FAILURE-------------------------------------
-          } else if (controller.statusRequest == StatusRequest.oflinefailure) {
-            return const Center(child: Text("Offline Failure"));
-
-            // --SERVER FAILURE--------------------------------------
-          } else if (controller.statusRequest == StatusRequest.serverfailure) {
-            return const Center(child: Text("Server Failure"));
-
-            // --SUCCESS---------------------------------------------
-          } else {
-            // --LIST VIEW-----------------------------------------
-            return ListView.builder(
+          return HandlingdataView(
+            statusRequest: controller.statusRequest,
+            widget: ListView.builder(
               // --NUMBER OF ITEMS---------------------------------
               itemCount: controller.data.length,
 
@@ -46,8 +37,8 @@ class TestView extends StatelessWidget {
                 // --CURRENT ITEM----------------------------------
                 return Text("${controller.data[index]}");
               },
-            );
-          }
+            ),
+          );
         },
       ),
     );
