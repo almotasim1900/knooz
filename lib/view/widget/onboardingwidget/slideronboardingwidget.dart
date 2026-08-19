@@ -4,20 +4,31 @@ import 'package:koosh/controller/onboarding_controller/onboarding_dots_controlle
 import 'package:koosh/core/constant/colors.dart';
 import 'package:koosh/data/datasource/static/onboarding_static.dart';
 
+// --SLIDER ONBOARDING WIDGET------------------------------------
+
 class SliderOnboardingWidget extends GetView<OnBoardingDotsControllerImp> {
   const SliderOnboardingWidget({super.key});
 
+  // --BUILD------------------------------------------------------
   @override
   Widget build(BuildContext context) {
+    // --PAGE VIEW------------------------------------------------
     return PageView.builder(
       controller: controller.pageController,
+
+      // --PAGE CHANGED--------------------------------------------
       // الدالة التالية لحفظ قيمة التغير بصفحة الاقلاع
       onPageChanged: (val) {
         controller.onPageChanged(val);
       },
+
+      // --ITEM COUNT----------------------------------------------
       itemCount: onBoardingList.length,
+
+      // --ITEM BUILDER--------------------------------------------
       itemBuilder: (context, i) => Column(
         children: [
+          // --ONBOARDING IMAGE------------------------------------
           //صور صفحة الاقلاع
           Image.asset(
             onBoardingList[i].image!,
@@ -25,9 +36,17 @@ class SliderOnboardingWidget extends GetView<OnBoardingDotsControllerImp> {
             // width: 230,
             fit: BoxFit.fill,
           ),
+
+          // --SPACE------------------------------------------------
           const SizedBox(height: 20),
+
+          // --ONBOARDING TITLE------------------------------------
           Text(onBoardingList[i].title!, style: const TextStyle()),
+
+          // --SPACE------------------------------------------------
           const SizedBox(height: 50),
+
+          // --BODY CONTAINER--------------------------------------
           // حاوية خاصة بالنص تحت صور صفحة الاقلاع لاعطاءها بعض الخصائص
           Container(
             width: double.infinity,

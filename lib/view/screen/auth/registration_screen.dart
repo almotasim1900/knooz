@@ -10,19 +10,25 @@ import 'package:koosh/view/widget/auth/custom_text_auth.dart';
 import 'package:koosh/view/widget/auth/custom_text_body_auth.dart';
 import 'package:koosh/view/widget/auth/registration_text_widgets.dart';
 
+// --REGISTRATION SCREEN-----------------------------------------
+
 class RegistrationScreen extends StatelessWidget {
   const RegistrationScreen({super.key});
 
+  // --BUILD------------------------------------------------------
   @override
   Widget build(BuildContext context) {
+    // --CONTROLLER------------------------------------------------
     // حقن متحكم جداول الادخال بالصفحة
-
     Get.lazyPut(() => RegistrationControllerImp());
+
     // هذه صيغة بديلة من اجل حقن المتحكم في الصفحة بدون انشاء نسخة جديدة منه)(صيغة بديلة)
     //RegistrationControllerImp controller = Get.put(RegistrationControllerImp());
 
+    // --SCAFFOLD-------------------------------------------------
     return Scaffold(
       appBar: AppBar(
+        // --APP BAR-----------------------------------------------
         // backgroundColor: AppColors.white,
         centerTitle: true,
         //  sign in
@@ -34,30 +40,42 @@ class RegistrationScreen extends StatelessWidget {
         ),
       ),
 
+      // --BODY----------------------------------------------------
       body: PopScope(
         canPop: false,
+
+        // --BACK BUTTON-------------------------------------------
         onPopInvokedWithResult: (didPop, result) {
           if (didPop) {
             return;
           }
           alertExitApp(); // استدعاء دالة الخروج هنا عند محاولة الرجوع
         },
+
+        // --GET BUILDER-------------------------------------------
         child: GetBuilder<RegistrationControllerImp>(
           builder: (controller) => Container(
             padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+
+            // --FORM------------------------------------------------
             child: Form(
               key: controller.formstate,
               child: ListView(
                 children: [
+                  // --WELCOME TEXT---------------------------------
                   // نص Welcome Back
                   CustomTextAuth(text: 'Welcome Back'),
                   const SizedBox(height: 10),
+
+                  // --BODY TEXT------------------------------------
                   // النص تحت Welcome Back
                   CustomTextBodyAuth(
                     text:
                         'Sign up With Your Email And Phone And Password Or Continue With Social Media ',
                   ),
                   const SizedBox(height: 15),
+
+                  // --USERNAME FORM FIELD--------------------------
                   // فور لادخال اليوزر نيم
                   CustomSignInFormField(
                     isNumber: false,
@@ -71,6 +89,7 @@ class RegistrationScreen extends StatelessWidget {
                     //mycontroller: ,
                   ),
 
+                  // --EMAIL FORM FIELD-----------------------------
                   // فورم ادخال الايميل
                   CustomSignInFormField(
                     isNumber: false,
@@ -84,6 +103,7 @@ class RegistrationScreen extends StatelessWidget {
                     //mycontroller: ,
                   ),
 
+                  // --PHONE FORM FIELD-----------------------------
                   // فورم رقم الهاتف
                   CustomSignInFormField(
                     isNumber: true,
@@ -97,6 +117,7 @@ class RegistrationScreen extends StatelessWidget {
                     //mycontroller: ,
                   ),
 
+                  // --PASSWORD FORM FIELD--------------------------
                   //فورم ادخال الرقم السري
                   CustomSignInFormField(
                     isNumber: false,
@@ -109,8 +130,11 @@ class RegistrationScreen extends StatelessWidget {
                     iconData: Icons.lock_outlined,
                     //mycontroller: ,
                   ),
+
                   //
                   // نهاية فورم ادخال الرقم السري
+
+                  // --REGISTRATION BUTTON--------------------------
                   // بوتوم تسجيل الدخول
                   CustomButtonAuth(
                     text: 'Registar',
@@ -118,7 +142,11 @@ class RegistrationScreen extends StatelessWidget {
                       controller.registration();
                     },
                   ),
+
+                  // --SPACE------------------------------------------------
                   SizedBox(height: 30),
+
+                  // --SIGN IN LINK---------------------------------
                   // بداية سطر اذا ما عندك حساب
                   RegistrationTextWidget(
                     text: "have an account?  ",

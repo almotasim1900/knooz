@@ -1,0 +1,17 @@
+import 'package:koosh/core/class/status_request.dart';
+
+// --HANDLE DATA-------------------------------------------------
+
+handlingDataController(response) {
+  // --CHECK STATUS REQUEST--------------------------------------
+
+  if (response is StatusRequest) {
+    // --RETURN FAILURE-------------------------------------------
+
+    return response;
+  } else {
+    // --SUCCESS--------------------------------------------------
+
+    return StatusRequest.success;
+  }
+}

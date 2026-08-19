@@ -11,17 +11,26 @@ import 'package:koosh/view/widget/auth/custom_text_body_auth.dart';
 import 'package:koosh/view/widget/auth/logo_auth.dart';
 import 'package:koosh/view/widget/auth/registration_text_widgets.dart';
 
+// --LOGIN SCREEN------------------------------------------------
+
 class Login extends StatelessWidget {
   const Login({super.key});
 
+  // --BUILD------------------------------------------------------
   @override
   Widget build(BuildContext context) {
+    // --CONTROLLER------------------------------------------------
     //حقن متحكم جداول الادخال بالص
     LoginControllerImp controller = Get.put(LoginControllerImp());
+
+    // --SCAFFOLD-------------------------------------------------
     return Scaffold(
       appBar: AppBar(
+        // --APP BAR------------------------------------------------
         // backgroundColor: AppColors.white,
         centerTitle: true,
+
+        // --TITLE--------------------------------------------------
         //  sign in
         title: Text(
           'Sign In',
@@ -31,33 +40,48 @@ class Login extends StatelessWidget {
         ),
       ),
 
+      // --BODY----------------------------------------------------
       body: PopScope(
         canPop: false,
+
+        // --BACK BUTTON--------------------------------------------
         onPopInvokedWithResult: (didPop, result) {
           if (didPop) {
             return;
           }
           alertExitApp(); // استدعاء دالة الخروج هنا عند محاولة الرجوع
         },
+
+        // --CONTAINER----------------------------------------------
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+
+          // --FORM-------------------------------------------------
           // نضعها داخل فورم للحصول علي key
           child: Form(
             key: controller.formstate,
             child: ListView(
               children: [
+                // --LOGO------------------------------------------------
                 // اضافة صورة اللوقو
                 LogoAuth(),
+
+                // --WELCOME TEXT---------------------------------------
                 // نص Welcome Back
                 CustomTextAuth(text: 'Welcome Back'),
                 const SizedBox(height: 10),
+
+                // --BODY TEXT------------------------------------------
                 // النص تحت Welcome Back
                 CustomTextBodyAuth(
                   text:
                       'Sign in With Your Email And Password Or Continue With Social Media ',
                 ),
+
+                // --EMAIL FORM-----------------------------------------
                 // فورم ادخال الايميل
                 const SizedBox(height: 15),
+
                 //F:\flutter\koosh\lib\view\widget\auth\custom_sign_in_form_field.dart
                 CustomSignInFormField(
                   isNumber: false,
@@ -71,7 +95,10 @@ class Login extends StatelessWidget {
                   //mycontroller:
                 ),
 
+                // --END EMAIL FORM------------------------------------
                 // نهاية فورم ادخال الايميل
+
+                // --PASSWORD FORM-------------------------------------
                 //فورم ادخال الرقم السري
                 //F:\flutter\koosh\lib\view\widget\auth\custom_sign_in_form_field.dart
                 GetBuilder<LoginControllerImp>(
@@ -86,6 +113,8 @@ class Login extends StatelessWidget {
                       hinttext: " Enter Your Password",
                       iconData: Icons.lock_outlined,
                       obscureText: controller.isShowPassword,
+
+                      // --SHOW PASSWORD--------------------------------
                       onTapIcon: () {
                         controller.showpassword();
                       },
@@ -93,7 +122,10 @@ class Login extends StatelessWidget {
                   },
                 ),
 
+                // --END PASSWORD FORM---------------------------------
                 // نهاية فورم ادخال الرقم السري
+
+                // --FORGET PASSWORD----------------------------------
                 InkWell(
                   onTap: () {
                     controller.goToForgetPassword();
@@ -105,6 +137,7 @@ class Login extends StatelessWidget {
                   ),
                 ),
 
+                // --LOGIN BUTTON--------------------------------------
                 // بوتوم تسجيل الدخول
                 CustomButtonAuth(
                   text: 'Sing In',
@@ -112,7 +145,11 @@ class Login extends StatelessWidget {
                     controller.login();
                   },
                 ),
+
+                // --SPACE------------------------------------------------
                 SizedBox(height: 30),
+
+                // --REGISTRATION LINK--------------------------------
                 // بداية سطر اذا ما عندك حساب
                 RegistrationTextWidget(
                   text: "Don't have an account?  ",
@@ -121,6 +158,8 @@ class Login extends StatelessWidget {
                     controller.goToRegistration();
                   },
                 ),
+
+                // --END REGISTRATION LINK-----------------------------
                 // نهاية سطر اذا ما عندك حسا
               ],
             ),

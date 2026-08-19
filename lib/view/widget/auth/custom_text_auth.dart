@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 
+// --CUSTOM TEXT AUTH--------------------------------------------
+
 class CustomTextAuth extends StatelessWidget {
+  // --TEXT-------------------------------------------------------
   final String text;
+
+  // --CONSTRUCTOR-----------------------------------------------
   const CustomTextAuth({super.key, required this.text});
 
+  // --BUILD------------------------------------------------------
   @override
   Widget build(BuildContext context) {
-    return Text(text
-              ,
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyMedium,
-            );
+    // --TEXT------------------------------------------------------
+    return Text(
+      text,
+      textAlign: TextAlign.center,
+      style: Theme.of(context).textTheme.bodyMedium,
+    );
   }
 }
