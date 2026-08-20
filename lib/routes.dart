@@ -3,7 +3,7 @@
 //ادارة التنقل بين الصفحات
 import 'package:get/get.dart';
 import 'package:koosh/core/constant/routes_names.dart';
-import 'package:koosh/test_view.dart';
+import 'package:koosh/core/middleware/my_middleware.dart';
 import 'package:koosh/view/screen/auth/forget_password/forget_password.dart';
 import 'package:koosh/view/screen/auth/forget_password/vrefiycodesignup.dart';
 import 'package:koosh/view/screen/auth/login.dart';
@@ -12,21 +12,21 @@ import 'package:koosh/view/screen/auth/forget_password/rest_password.dart';
 import 'package:koosh/view/screen/auth/forget_password/success_reset_password.dart';
 import 'package:koosh/view/screen/auth/success_signup.dart';
 import 'package:koosh/view/screen/auth/forget_password/vrefiy_code.dart';
+import 'package:koosh/view/screen/language_screen.dart';
 import 'package:koosh/view/screen/onboarding.dart';
 
 // --ROUTES LIST-------------------------------------------------
 
 List<GetPage<dynamic>>? routes = [
   // --START PAGE------------------------------------------------
-  // الصفحة التي يبدأ منها التطبيق عند فتحه
-  //GetPage(
-  //name: "/",
-  // page: () => const LanguageaScreen(),
-  // middlewares: [MyMiddleware()],
-  // ),
+  GetPage(
+    name: "/",
+    page: () => const LanguageaScreen(),
+    middlewares: [MyMiddleware()],
+  ),
 
   // --TEST PAGE-------------------------------------------------
-  GetPage(name: "/", page: () => TestView()),
+  //GetPage(name: "/", page: () => TestView()),
 
   // --ONBOARDING------------------------------------------------
   // هذه الخطوة بعد تعريف الروت في الدالة بالرابط التالي
