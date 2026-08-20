@@ -33,7 +33,7 @@ class RegistrationControllerImp extends RegistrationController {
 
   // --STATUS REQUEST--------------------------------------------
 
-  late StatusRequest statusRequest;
+  StatusRequest? statusRequest;
 
   // --SIGN UP REMOTE DATA---------------------------------------
 
@@ -56,6 +56,7 @@ class RegistrationControllerImp extends RegistrationController {
         // --LOADING----------------------------------------------
 
         statusRequest = StatusRequest.loading;
+        update();
 
         // --SEND REQUEST-----------------------------------------
 
@@ -78,7 +79,11 @@ class RegistrationControllerImp extends RegistrationController {
           if ((response as Map)['status'] == "success") {
             // --GO TO VERIFY CODE--------------------------------
 
-            Get.offNamed(AppsRoutesNames.vrefiyCodeSignUp);
+            Get.offNamed(
+              AppsRoutesNames.vrefiyCodeSignUp,
+              //== لتمرير الايميل لصفحة رمز التحقق ==================
+              arguments: {"email": email.text},
+            );
           } else {
             // --FAILURE------------------------------------------
 
