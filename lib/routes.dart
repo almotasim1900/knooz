@@ -12,6 +12,7 @@ import 'package:koosh/view/screen/auth/forget_password/rest_password.dart';
 import 'package:koosh/view/screen/auth/forget_password/success_reset_password.dart';
 import 'package:koosh/view/screen/auth/success_signup.dart';
 import 'package:koosh/view/screen/auth/forget_password/vrefiy_code.dart';
+import 'package:koosh/view/screen/home_page.dart';
 import 'package:koosh/view/screen/language_screen.dart';
 import 'package:koosh/view/screen/onboarding.dart';
 
@@ -74,4 +75,7 @@ List<GetPage<dynamic>>? routes = [
     name: AppsRoutesNames.vrefiyCodeSignUp,
     page: () => const Vrefiycodesignup(),
   ),
+
+  // -- HOME --------------------------------------------------
+  GetPage(name: AppsRoutesNames.homePage, page: () => const HomePage()),
 ];

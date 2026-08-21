@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:koosh/controller/auth_controller/login_controller.dart';
+import 'package:koosh/core/class/status_request.dart';
+import 'package:koosh/core/constant/app_assets.dart';
 import 'package:koosh/core/constant/colors.dart';
 import 'package:koosh/core/functions/Valid_input.dart';
 import 'package:koosh/core/functions/alert_exit_app.dart';
@@ -10,6 +12,7 @@ import 'package:koosh/view/widget/auth/custom_text_auth.dart';
 import 'package:koosh/view/widget/auth/custom_text_body_auth.dart';
 import 'package:koosh/view/widget/auth/logo_auth.dart';
 import 'package:koosh/view/widget/auth/registration_text_widgets.dart';
+import 'package:lottie/lottie.dart';
 
 // --LOGIN SCREEN------------------------------------------------
 
@@ -53,117 +56,125 @@ class Login extends StatelessWidget {
         },
 
         // --CONTAINER----------------------------------------------
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+        child: GetBuilder<LoginControllerImp>(
+          builder: (controller) =>
+              controller.statusRequest == StatusRequest.loading
+              ? Center(child: Lottie.asset(AppAssets.loading))
+              : Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 15,
+                    horizontal: 30,
+                  ),
 
-          // --FORM-------------------------------------------------
-          // نضعها داخل فورم للحصول علي key
-          child: Form(
-            key: controller.formstate,
-            child: ListView(
-              children: [
-                // --LOGO------------------------------------------------
-                // اضافة صورة اللوقو
-                LogoAuth(),
+                  // --FORM-------------------------------------------------
+                  // نضعها داخل فورم للحصول علي key
+                  child: Form(
+                    key: controller.formstate,
+                    child: ListView(
+                      children: [
+                        // --LOGO------------------------------------------------
+                        // اضافة صورة اللوقو
+                        LogoAuth(),
 
-                // --WELCOME TEXT---------------------------------------
-                // نص Welcome Back
-                CustomTextAuth(text: 'Welcome Back'),
-                const SizedBox(height: 10),
+                        // --WELCOME TEXT---------------------------------------
+                        // نص Welcome Back
+                        CustomTextAuth(text: 'Welcome Back'),
+                        const SizedBox(height: 10),
 
-                // --BODY TEXT------------------------------------------
-                // النص تحت Welcome Back
-                CustomTextBodyAuth(
-                  text:
-                      'Sign in With Your Email And Password Or Continue With Social Media ',
-                ),
+                        // --BODY TEXT------------------------------------------
+                        // النص تحت Welcome Back
+                        CustomTextBodyAuth(
+                          text:
+                              'Sign in With Your Email And Password Or Continue With Social Media ',
+                        ),
 
-                // --EMAIL FORM-----------------------------------------
-                // فورم ادخال الايميل
-                const SizedBox(height: 15),
+                        // --EMAIL FORM-----------------------------------------
+                        // فورم ادخال الايميل
+                        const SizedBox(height: 15),
 
-                //F:\flutter\koosh\lib\view\widget\auth\custom_sign_in_form_field.dart
-                CustomSignInFormField(
-                  isNumber: false,
-                  valid: (val) {
-                    return validInput(val!, 5, 100, "email");
-                  },
-                  authController: controller.email,
-                  labeltext: "Email",
-                  hinttext: " Enter Your Email",
-                  iconData: Icons.email_outlined,
-                  //mycontroller:
-                ),
+                        //F:\flutter\koosh\lib\view\widget\auth\custom_sign_in_form_field.dart
+                        CustomSignInFormField(
+                          isNumber: false,
+                          valid: (val) {
+                            return validInput(val!, 5, 100, "email");
+                          },
+                          authController: controller.email,
+                          labeltext: "Email",
+                          hinttext: " Enter Your Email",
+                          iconData: Icons.email_outlined,
+                          //mycontroller:
+                        ),
 
-                // --END EMAIL FORM------------------------------------
-                // نهاية فورم ادخال الايميل
+                        // --END EMAIL FORM------------------------------------
+                        // نهاية فورم ادخال الايميل
 
-                // --PASSWORD FORM-------------------------------------
-                //فورم ادخال الرقم السري
-                //F:\flutter\koosh\lib\view\widget\auth\custom_sign_in_form_field.dart
-                GetBuilder<LoginControllerImp>(
-                  builder: (controller) {
-                    return CustomSignInFormField(
-                      isNumber: false,
-                      valid: (val) {
-                        return validInput(val!, 5, 20, "password");
-                      },
-                      authController: controller.password,
-                      labeltext: "Password",
-                      hinttext: " Enter Your Password",
-                      iconData: Icons.lock_outlined,
-                      obscureText: controller.isShowPassword,
+                        // --PASSWORD FORM-------------------------------------
+                        //فورم ادخال الرقم السري
+                        //F:\flutter\koosh\lib\view\widget\auth\custom_sign_in_form_field.dart
+                        GetBuilder<LoginControllerImp>(
+                          builder: (controller) {
+                            return CustomSignInFormField(
+                              isNumber: false,
+                              valid: (val) {
+                                return validInput(val!, 5, 20, "password");
+                              },
+                              authController: controller.password,
+                              labeltext: "Password",
+                              hinttext: " Enter Your Password",
+                              iconData: Icons.lock_outlined,
+                              obscureText: controller.isShowPassword,
 
-                      // --SHOW PASSWORD--------------------------------
-                      onTapIcon: () {
-                        controller.showpassword();
-                      },
-                    );
-                  },
-                ),
+                              // --SHOW PASSWORD--------------------------------
+                              onTapIcon: () {
+                                controller.showpassword();
+                              },
+                            );
+                          },
+                        ),
 
-                // --END PASSWORD FORM---------------------------------
-                // نهاية فورم ادخال الرقم السري
+                        // --END PASSWORD FORM---------------------------------
+                        // نهاية فورم ادخال الرقم السري
 
-                // --FORGET PASSWORD----------------------------------
-                InkWell(
-                  onTap: () {
-                    controller.goToForgetPassword();
-                  },
-                  child: Text(
-                    'Forger Password',
-                    textAlign: TextAlign.end,
-                    style: Theme.of(context).textTheme.bodySmall,
+                        // --FORGET PASSWORD----------------------------------
+                        InkWell(
+                          onTap: () {
+                            controller.goToForgetPassword();
+                          },
+                          child: Text(
+                            'Forger Password',
+                            textAlign: TextAlign.end,
+                            style: Theme.of(context).textTheme.bodySmall,
+                          ),
+                        ),
+
+                        // --LOGIN BUTTON--------------------------------------
+                        // بوتوم تسجيل الدخول
+                        CustomButtonAuth(
+                          text: 'Sing In',
+                          onPressed: () {
+                            controller.login();
+                          },
+                        ),
+
+                        // --SPACE------------------------------------------------
+                        SizedBox(height: 30),
+
+                        // --REGISTRATION LINK--------------------------------
+                        // بداية سطر اذا ما عندك حساب
+                        RegistrationTextWidget(
+                          text: "Don't have an account?  ",
+                          text2: 'Sign Up',
+                          onTap: () {
+                            controller.goToRegistration();
+                          },
+                        ),
+
+                        // --END REGISTRATION LINK-----------------------------
+                        // نهاية سطر اذا ما عندك حسا
+                      ],
+                    ),
                   ),
                 ),
-
-                // --LOGIN BUTTON--------------------------------------
-                // بوتوم تسجيل الدخول
-                CustomButtonAuth(
-                  text: 'Sing In',
-                  onPressed: () {
-                    controller.login();
-                  },
-                ),
-
-                // --SPACE------------------------------------------------
-                SizedBox(height: 30),
-
-                // --REGISTRATION LINK--------------------------------
-                // بداية سطر اذا ما عندك حساب
-                RegistrationTextWidget(
-                  text: "Don't have an account?  ",
-                  text2: 'Sign Up',
-                  onTap: () {
-                    controller.goToRegistration();
-                  },
-                ),
-
-                // --END REGISTRATION LINK-----------------------------
-                // نهاية سطر اذا ما عندك حسا
-              ],
-            ),
-          ),
         ),
       ),
     );
