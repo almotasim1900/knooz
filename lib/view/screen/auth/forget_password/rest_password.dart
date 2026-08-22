@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:koosh/controller/auth_controller/reset_password_controller.dart';
+import 'package:koosh/controller/forgetpassword_controller/reset_password_controller.dart';
 import 'package:koosh/core/constant/colors.dart';
 import 'package:koosh/view/widget/auth/custom_button_auth.dart';
 import 'package:koosh/view/widget/auth/custom_sign_in_form_field.dart';
@@ -43,7 +43,7 @@ class RestPassword extends StatelessWidget {
             // فورم رقم الباسويرد
             CustomSignInFormField(
               isNumber: true,
-              valid: (val){
+              valid: (val) {
                 return null;
               },
               authController: controller.password,
@@ -53,7 +53,7 @@ class RestPassword extends StatelessWidget {
             ),
             CustomSignInFormField(
               isNumber: false,
-              valid: (val){
+              valid: (val) {
                 return null;
               },
               authController: controller.repassword,

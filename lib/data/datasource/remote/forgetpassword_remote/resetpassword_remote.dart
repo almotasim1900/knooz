@@ -6,8 +6,8 @@ class ResetPasswordRemoteData {
 
   ResetPasswordRemoteData(this.crudRequest);
 
-  Future<Object> login(String email, String password) async {
-    var response = await crudRequest.postData(AppLink.login, {
+  Future<Object> postdata(String email, String password) async {
+    var response = await crudRequest.postData(AppLink.resetPassword, {
       "email": email,
       "password": password,
     });

@@ -6,10 +6,9 @@ class CheckEmailRemoteData {
 
   CheckEmailRemoteData(this.crudRequest);
 
-  Future<Object> login(String email, String password) async {
-    var response = await crudRequest.postData(AppLink.login, {
+  Future<Object> postdata(String email) async {
+    var response = await crudRequest.postData(AppLink.checkEmail, {
       "email": email,
-      "password": password,
     });
 
     return response.fold((l) => l, (r) => r);

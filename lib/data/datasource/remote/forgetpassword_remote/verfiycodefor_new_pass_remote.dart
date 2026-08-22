@@ -6,10 +6,10 @@ class VerfiyCodeForgetPasswordRemoteData {
 
   VerfiyCodeForgetPasswordRemoteData(this.crudRequest);
 
-  Future<Object> login(String email, String password) async {
-    var response = await crudRequest.postData(AppLink.login, {
+  Future<Object> postdata(String email, String verfiycode) async {
+    var response = await crudRequest.postData(AppLink.verfiyCodeForNewPass, {
       "email": email,
-      "password": password,
+      "verfiycode": verfiycode,
     });
 
     return response.fold((l) => l, (r) => r);
