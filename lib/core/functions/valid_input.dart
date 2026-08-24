@@ -1,31 +1,33 @@
-
 import 'package:get/get.dart';
 
- dynamic validInput(String val, int min, int max, String type) {
-  if(val.isEmpty) {
-    return "can't be empty ";
+dynamic validInput(String val, int min, int max, String type) {
+  if (val.isEmpty) {
+    return 'empty_field'.tr;
   }
+
   if (type == "username") {
     if (!GetUtils.isUsername(val)) {
-      return 'Not valid username'.tr;
+      return 'invalid_username'.tr;
     }
   }
+
   if (type == "email") {
     if (!GetUtils.isEmail(val)) {
-      return 'Not valid Email'.tr;
+      return 'invalid_email'.tr;
     }
   }
+
   if (type == "phone") {
     if (!GetUtils.isPhoneNumber(val)) {
-      return 'Not valid Phone number,'.tr;
+      return 'invalid_phone'.tr;
     }
   }
+
   if (val.length < min) {
-    return "can't be less than $min ";
+    return 'too_short'.trParams({'min': min.toString()});
   }
 
   if (val.length > max) {
-    return "can't be larger than $max";
+    return 'too_long'.trParams({'max': max.toString()});
   }
-  
 }

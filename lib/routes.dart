@@ -4,17 +4,17 @@
 import 'package:get/get.dart';
 import 'package:koosh/core/constant/routes_names.dart';
 import 'package:koosh/core/middleware/my_middleware.dart';
-import 'package:koosh/view/screen/auth/forget_password/forget_password.dart';
-import 'package:koosh/view/screen/auth/forget_password/vrefiycodesignup.dart';
-import 'package:koosh/view/screen/auth/login.dart';
-import 'package:koosh/view/screen/auth/registration_screen.dart';
-import 'package:koosh/view/screen/auth/forget_password/rest_password.dart';
-import 'package:koosh/view/screen/auth/forget_password/success_reset_password.dart';
-import 'package:koosh/view/screen/auth/success_signup.dart';
-import 'package:koosh/view/screen/auth/forget_password/vrefiy_code.dart';
-import 'package:koosh/view/screen/home_page.dart';
+import 'package:koosh/auth/forgetpassword/forget_password.dart';
+import 'package:koosh/auth/vrefiy_code_signup/vrefiycodesignup.dart';
+import 'package:koosh/auth/login/login.dart';
+import 'package:koosh/auth/signup/registration_screen.dart';
+import 'package:koosh/auth/vrefiycod_resetpassword/rest_password.dart';
+import 'package:koosh/auth/vrefiycod_resetpassword/success_reset_password.dart';
+import 'package:koosh/auth/signup/success_signup.dart';
+import 'package:koosh/auth/vrefiycod_resetpassword/vrefiy_code.dart';
+import 'package:koosh/home_page/home_page.dart';
 import 'package:koosh/view/screen/language_screen.dart';
-import 'package:koosh/view/screen/onboarding.dart';
+import 'package:koosh/onboarding/onboarding_screen.dart';
 
 // --ROUTES LIST-------------------------------------------------
 
