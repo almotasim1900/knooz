@@ -1,5 +1,4 @@
-POST https://kush-crown.com/kushapp/auth/verifycode.php
+POST https://kush-crown.com/kushapp/forgetpassword/checkemail.php
 Content-Type: application/x-www-form-urlencoded
 
-email=test51jj23@gmail.com
-&verfiycode=6594
+email=yy@gmail.com

@@ -23,6 +23,27 @@ function getAllData($table, $where = null, $values = null)
     }
     return $count;
 }
+function getData($table, $where = null, $values = null, $json = true)
+{
+    global $con;
+    $data = array();
+
+    $stmt = $con->prepare("SELECT * FROM $table WHERE $where");
+    $stmt->execute($values);
+
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+    $count = $stmt->rowCount();
+
+    if ($json == true) {
+        if ($count > 0) {
+            echo json_encode(array("status" => "success", "data" => $data));
+        } else {
+            echo json_encode(array("status" => "failure"));
+        }
+    }
+
+    return $data;
+}
 
 function insertData($table, $data, $json = true)
 {
@@ -144,7 +165,26 @@ function checkAuthenticate()
 function printFaliure($message="none")
 {
         echo  json_encode(array("status"=>"Faliure","message"=>$message));
+        
     }
+
+    function printSuccess($message="none")
+{
+        echo  json_encode(array("status"=>"success","message"=>$message));
+        
+    }
+
+    function result ($count){
+        if($count>0){
+            printSuccess();
+        }else{
+printFaliure();
+        }
+
+    }
+
+
+    
   function sendEmail($to, $title, $body)
 {
     $headers = "From: support@kush-crown.com\r\n";
