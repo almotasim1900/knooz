@@ -10,7 +10,7 @@ class HomePageControllerImp extends HomePageController {
   String? username;
 
   //========================================
-  initialData() {
+  void initialData() {
     id = myServices.sharedPreferences.getString("id");
     username = myServices.sharedPreferences.getString("username");
   }
