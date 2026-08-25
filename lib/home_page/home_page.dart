@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:koosh/core/constant/colors.dart';
+import 'package:koosh/home_page/ads_slider/ads_slider_widget.dart';
 import 'package:koosh/home_page/homepage_controller.dart';
 
 class HomePage extends StatelessWidget {
@@ -75,21 +76,8 @@ class HomePage extends StatelessWidget {
 
             //== نهاية الشريط العلوي
             //== المربع تحت شريط العنوان
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: Stack(
-                children: [
-                  Container(
-                    height: 150,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: AppColors.primerycolor,
-                    ),
-                    child: ListTile(),
-                  ),
-                ],
-              ),
-            ),
+            const AdsSliderWidget(),
+
             //== نهاية المربع تحت شريط العنوان
           ],
         ),
