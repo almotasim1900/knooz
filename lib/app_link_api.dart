@@ -1,6 +1,18 @@
 class AppLink {
   //-- الرابط الرئيسي للسيرفر-------------------------
   static const String server = "https://kush-crown.com/kushapp";
+  //== الرابط الاساسي لللصور==================================
+
+  static const String serverImages = "https://kush-crown.com/kushapp/upload";
+  static const String categoriesServerImages =
+      "https://kush-crown.com/kushapp/upload/categories";
+  static const String itemsServerImages =
+      "https://kush-crown.com/kushapp/upload/items";
+  static const String adsServerImages =
+      "https://kush-crown.com/kushapp/upload/ads";
+
+  //===============================================================================
+
   //--test------------------------
   static const String test = "$server/test.php";
   //==auth============================================

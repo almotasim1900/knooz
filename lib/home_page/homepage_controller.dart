@@ -88,6 +88,8 @@ class HomePageControllerImp extends HomePageController {
       if (data['status'] == "success") {
         categories.addAll(data["categories"]);
       }
+
+      //=========================
     } else {
       statusRequest = StatusRequest.failure;
     }
